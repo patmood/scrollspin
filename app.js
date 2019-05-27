@@ -319,23 +319,44 @@ class ScrollSpin {
     this.img.src = frames[0]
     this.el.appendChild(this.img)
 
+    this.preloadImages = []
+    this.initialPreloadCount = 10
     this.frames = frames
     this.options = { ...DEFAULT_OPTIONS, ...options }
 
     // Bind methods
     this.update = this.update.bind(this)
-
-    this.preload()
+    this.preloadRest = this.preloadRest.bind(this)
+    this.makeImg = this.makeImg.bind(this)
+    this.preloadInitial()
 
     window.addEventListener('scroll', rafThrottle(this.update))
   }
 
-  preload() {
-    this.images = this.frames.map(f => {
-      let img = new Image()
-      img.src = f
-      return img
-    })
+  preloadInitial() {
+    this.preloadImages = this.preloadImages.concat(
+      this.frames.slice(0, this.initialPreloadCount).map(this.makeImg)
+    )
+
+    if (document.readyState !== 'loading') {
+      // finish preloading now
+      this.preloadRest()
+    } else {
+      // finish preloading later
+      document.addEventListener('DOMContentLoaded', this.preloadRest)
+    }
+  }
+
+  preloadRest() {
+    this.preloadImages = this.preloadImages.concat(
+      this.frames.slice(this.initialPreloadCount).map(this.makeImg)
+    )
+  }
+
+  makeImg(src) {
+    let img = new Image()
+    img.src = src
+    return img
   }
 
   update() {

@@ -158,22 +158,42 @@ function () {
     this.img = document.createElement('img');
     this.img.src = frames[0];
     this.el.appendChild(this.img);
+    this.preloadImages = [];
+    this.initialPreloadCount = 10;
     this.frames = frames;
     this.options = _objectSpread({}, DEFAULT_OPTIONS, options); // Bind methods
 
     this.update = this.update.bind(this);
-    this.preload();
+    this.preloadRest = this.preloadRest.bind(this);
+    this.makeImg = this.makeImg.bind(this);
+    this.preloadInitial();
     window.addEventListener('scroll', rafThrottle(this.update));
   }
 
   _createClass(ScrollSpin, [{
-    key: "preload",
-    value: function preload() {
-      this.images = this.frames.map(function (f) {
-        var img = new Image();
-        img.src = f;
-        return img;
-      });
+    key: "preloadInitial",
+    value: function preloadInitial() {
+      this.preloadImages = this.preloadImages.concat(this.frames.slice(0, this.initialPreloadCount).map(this.makeImg));
+
+      if (document.readyState !== 'loading') {
+        // finish preloading now
+        this.preloadRest();
+      } else {
+        // finish preloading later
+        document.addEventListener('DOMContentLoaded', this.preloadRest);
+      }
+    }
+  }, {
+    key: "preloadRest",
+    value: function preloadRest() {
+      this.preloadImages = this.preloadImages.concat(this.frames.slice(this.initialPreloadCount).map(this.makeImg));
+    }
+  }, {
+    key: "makeImg",
+    value: function makeImg(src) {
+      var img = new Image();
+      img.src = src;
+      return img;
     }
   }, {
     key: "update",
@@ -216,7 +236,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56860" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57379" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "parcel index.html --out-dir docs --public-url ./",
+    "start": "parcel index.html --out-dir docs",
+    "build": "parcel index.html --out-dir docs --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
