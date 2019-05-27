@@ -1,0 +1,21 @@
+{
+  "name": "scrollspin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Patrick Moody (http://www.patmoody.com)",
+  "license": "ISC",
+  "staticFiles": {
+    "staticPath": "images",
+    "watcherGlob": "**"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.3",
+    "parcel-plugin-static-files-copy": "^2.1.1"
+  }
+}
