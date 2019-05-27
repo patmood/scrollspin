@@ -342,7 +342,6 @@ class ScrollSpin {
     const totalFrames = this.frames.length
     const index =
       Math.floor(window.scrollY / this.options.frameDistance) % totalFrames
-    console.log({ index })
     this.img.src = this.frames[index]
   }
 }

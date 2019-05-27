@@ -180,9 +180,6 @@ function () {
     value: function update() {
       var totalFrames = this.frames.length;
       var index = Math.floor(window.scrollY / this.options.frameDistance) % totalFrames;
-      console.log({
-        index: index
-      });
       this.img.src = this.frames[index];
     }
   }]);
@@ -219,7 +216,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55316" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55692" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
