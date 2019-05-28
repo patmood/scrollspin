@@ -1,13 +1,5 @@
 'use strict'
 
-function rafThrottle(fn) {
-  return function() {
-    window.requestAnimationFrame(function() {
-      fn.apply(this, arguments)
-    })
-  }
-}
-
 var ScrollSpin = (function() {
   function ScrollSpin(el, frames = [], options = {}) {
     this.options = {
@@ -25,6 +17,20 @@ var ScrollSpin = (function() {
     this.preloadInitial()
 
     window.addEventListener('scroll', rafThrottle(this.update.bind(this)))
+  }
+
+  function rafThrottle(fn) {
+    var throttled = false
+    return function() {
+      if (throttled) {
+        return false
+      }
+      throttled = true
+      window.requestAnimationFrame(function() {
+        fn.apply(this, arguments)
+        throttled = false
+      })
+    }
   }
 
   var _proto = ScrollSpin.prototype
