@@ -56,15 +56,16 @@ var ScrollSpin = (function() {
   }
 
   _proto.makeImg = function makeImg(src) {
-    let img = document.createElement('img')
+    var img = document.createElement('img')
     img.src = src
     return img
   }
 
   _proto.update = function update() {
-    const totalFrames = this.frames.length
-    const index =
+    var totalFrames = this.frames.length
+    var index =
       Math.floor(window.scrollY / this.options.frameDistance) % totalFrames
+    index = Math.max(index, 0)
     this.img.src = this.frames[index]
   }
 
