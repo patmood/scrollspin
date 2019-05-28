@@ -1,318 +1,18 @@
-const frames = [
-  'frames/frame_000.gif',
-  'frames/frame_001.gif',
-  'frames/frame_002.gif',
-  'frames/frame_003.gif',
-  'frames/frame_004.gif',
-  'frames/frame_005.gif',
-  'frames/frame_006.gif',
-  'frames/frame_007.gif',
-  'frames/frame_008.gif',
-  'frames/frame_009.gif',
-  'frames/frame_010.gif',
-  'frames/frame_011.gif',
-  'frames/frame_012.gif',
-  'frames/frame_013.gif',
-  'frames/frame_014.gif',
-  'frames/frame_015.gif',
-  'frames/frame_016.gif',
-  'frames/frame_017.gif',
-  'frames/frame_018.gif',
-  'frames/frame_019.gif',
-  'frames/frame_020.gif',
-  'frames/frame_021.gif',
-  'frames/frame_022.gif',
-  'frames/frame_023.gif',
-  'frames/frame_024.gif',
-  'frames/frame_025.gif',
-  'frames/frame_026.gif',
-  'frames/frame_027.gif',
-  'frames/frame_028.gif',
-  'frames/frame_029.gif',
-  'frames/frame_030.gif',
-  'frames/frame_031.gif',
-  'frames/frame_032.gif',
-  'frames/frame_033.gif',
-  'frames/frame_034.gif',
-  'frames/frame_035.gif',
-  'frames/frame_036.gif',
-  'frames/frame_037.gif',
-  'frames/frame_038.gif',
-  'frames/frame_039.gif',
-  'frames/frame_040.gif',
-  'frames/frame_041.gif',
-  'frames/frame_042.gif',
-  'frames/frame_043.gif',
-  'frames/frame_044.gif',
-  'frames/frame_045.gif',
-  'frames/frame_046.gif',
-  'frames/frame_047.gif',
-  'frames/frame_048.gif',
-  'frames/frame_049.gif',
-  'frames/frame_050.gif',
-  'frames/frame_051.gif',
-  'frames/frame_052.gif',
-  'frames/frame_053.gif',
-  'frames/frame_054.gif',
-  'frames/frame_055.gif',
-  'frames/frame_056.gif',
-  'frames/frame_057.gif',
-  'frames/frame_058.gif',
-  'frames/frame_059.gif',
-  'frames/frame_060.gif',
-  'frames/frame_061.gif',
-  'frames/frame_062.gif',
-  'frames/frame_063.gif',
-  'frames/frame_064.gif',
-  'frames/frame_065.gif',
-  'frames/frame_066.gif',
-  'frames/frame_067.gif',
-  'frames/frame_068.gif',
-  'frames/frame_069.gif',
-  'frames/frame_070.gif',
-  'frames/frame_071.gif',
-  'frames/frame_072.gif',
-  'frames/frame_073.gif',
-  'frames/frame_074.gif',
-  'frames/frame_075.gif',
-  'frames/frame_076.gif',
-  'frames/frame_077.gif',
-  'frames/frame_078.gif',
-  'frames/frame_079.gif',
-  'frames/frame_080.gif',
-  'frames/frame_081.gif',
-  'frames/frame_082.gif',
-  'frames/frame_083.gif',
-  'frames/frame_084.gif',
-  'frames/frame_085.gif',
-  'frames/frame_086.gif',
-  'frames/frame_087.gif',
-  'frames/frame_088.gif',
-  'frames/frame_089.gif',
-  'frames/frame_090.gif',
-  'frames/frame_091.gif',
-  'frames/frame_092.gif',
-  'frames/frame_093.gif',
-  'frames/frame_094.gif',
-  'frames/frame_095.gif',
-  'frames/frame_096.gif',
-  'frames/frame_097.gif',
-  'frames/frame_098.gif',
-  'frames/frame_099.gif',
-  'frames/frame_100.gif',
-  'frames/frame_101.gif',
-  'frames/frame_102.gif',
-  'frames/frame_103.gif',
-  'frames/frame_104.gif',
-  'frames/frame_105.gif',
-  'frames/frame_106.gif',
-  'frames/frame_107.gif',
-  'frames/frame_108.gif',
-  'frames/frame_109.gif',
-  'frames/frame_110.gif',
-  'frames/frame_111.gif',
-  'frames/frame_112.gif',
-  'frames/frame_113.gif',
-  'frames/frame_114.gif',
-  'frames/frame_115.gif',
-  'frames/frame_116.gif',
-  'frames/frame_117.gif',
-  'frames/frame_118.gif',
-  'frames/frame_119.gif',
-  'frames/frame_120.gif',
-  'frames/frame_121.gif',
-  'frames/frame_122.gif',
-  'frames/frame_123.gif',
-  'frames/frame_124.gif',
-  'frames/frame_125.gif',
-  'frames/frame_126.gif',
-  'frames/frame_127.gif',
-  'frames/frame_128.gif',
-  'frames/frame_129.gif',
-  'frames/frame_130.gif',
-  'frames/frame_131.gif',
-  'frames/frame_132.gif',
-  'frames/frame_133.gif',
-  'frames/frame_134.gif',
-  'frames/frame_135.gif',
-  'frames/frame_136.gif',
-  'frames/frame_137.gif',
-  'frames/frame_138.gif',
-  'frames/frame_139.gif',
-  'frames/frame_140.gif',
-  'frames/frame_141.gif',
-  'frames/frame_142.gif',
-  'frames/frame_143.gif',
-  'frames/frame_144.gif',
-  'frames/frame_145.gif',
-  'frames/frame_146.gif',
-  'frames/frame_147.gif',
-  'frames/frame_148.gif',
-  'frames/frame_149.gif',
-  'frames/frame_150.gif',
-  'frames/frame_151.gif',
-  'frames/frame_152.gif',
-  'frames/frame_153.gif',
-  'frames/frame_154.gif',
-  'frames/frame_155.gif',
-  'frames/frame_156.gif',
-  'frames/frame_157.gif',
-  'frames/frame_158.gif',
-  'frames/frame_159.gif',
-  'frames/frame_160.gif',
-  'frames/frame_161.gif',
-  'frames/frame_162.gif',
-  'frames/frame_163.gif',
-  'frames/frame_164.gif',
-  'frames/frame_165.gif',
-  'frames/frame_166.gif',
-  'frames/frame_167.gif',
-  'frames/frame_168.gif',
-  'frames/frame_169.gif',
-  'frames/frame_170.gif',
-  'frames/frame_171.gif',
-  'frames/frame_172.gif',
-  'frames/frame_173.gif',
-  'frames/frame_174.gif',
-  'frames/frame_175.gif',
-  'frames/frame_176.gif',
-  'frames/frame_177.gif',
-  'frames/frame_178.gif',
-  'frames/frame_179.gif',
-  'frames/frame_180.gif',
-  'frames/frame_181.gif',
-  'frames/frame_182.gif',
-  'frames/frame_183.gif',
-  'frames/frame_184.gif',
-  'frames/frame_185.gif',
-  'frames/frame_186.gif',
-  'frames/frame_187.gif',
-  'frames/frame_188.gif',
-  'frames/frame_189.gif',
-  'frames/frame_190.gif',
-  'frames/frame_191.gif',
-  'frames/frame_192.gif',
-  'frames/frame_193.gif',
-  'frames/frame_194.gif',
-  'frames/frame_195.gif',
-  'frames/frame_196.gif',
-  'frames/frame_197.gif',
-  'frames/frame_198.gif',
-  'frames/frame_199.gif',
-  'frames/frame_200.gif',
-  'frames/frame_201.gif',
-  'frames/frame_202.gif',
-  'frames/frame_203.gif',
-  'frames/frame_204.gif',
-  'frames/frame_205.gif',
-  'frames/frame_206.gif',
-  'frames/frame_207.gif',
-  'frames/frame_208.gif',
-  'frames/frame_209.gif',
-  'frames/frame_210.gif',
-  'frames/frame_211.gif',
-  'frames/frame_212.gif',
-  'frames/frame_213.gif',
-  'frames/frame_214.gif',
-  'frames/frame_215.gif',
-  'frames/frame_216.gif',
-  'frames/frame_217.gif',
-  'frames/frame_218.gif',
-  'frames/frame_219.gif',
-  'frames/frame_220.gif',
-  'frames/frame_221.gif',
-  'frames/frame_222.gif',
-  'frames/frame_223.gif',
-  'frames/frame_224.gif',
-  'frames/frame_225.gif',
-  'frames/frame_226.gif',
-  'frames/frame_227.gif',
-  'frames/frame_228.gif',
-  'frames/frame_229.gif',
-  'frames/frame_230.gif',
-  'frames/frame_231.gif',
-  'frames/frame_232.gif',
-  'frames/frame_233.gif',
-  'frames/frame_234.gif',
-  'frames/frame_235.gif',
-  'frames/frame_236.gif',
-  'frames/frame_237.gif',
-  'frames/frame_238.gif',
-  'frames/frame_239.gif',
-  'frames/frame_240.gif',
-  'frames/frame_241.gif',
-  'frames/frame_242.gif',
-  'frames/frame_243.gif',
-  'frames/frame_244.gif',
-  'frames/frame_245.gif',
-  'frames/frame_246.gif',
-  'frames/frame_247.gif',
-  'frames/frame_248.gif',
-  'frames/frame_249.gif',
-  'frames/frame_250.gif',
-  'frames/frame_251.gif',
-  'frames/frame_252.gif',
-  'frames/frame_253.gif',
-  'frames/frame_254.gif',
-  'frames/frame_255.gif',
-  'frames/frame_256.gif',
-  'frames/frame_257.gif',
-  'frames/frame_258.gif',
-  'frames/frame_259.gif',
-  'frames/frame_260.gif',
-  'frames/frame_261.gif',
-  'frames/frame_262.gif',
-  'frames/frame_263.gif',
-  'frames/frame_264.gif',
-  'frames/frame_265.gif',
-  'frames/frame_266.gif',
-  'frames/frame_267.gif',
-  'frames/frame_268.gif',
-  'frames/frame_269.gif',
-  'frames/frame_270.gif',
-  'frames/frame_271.gif',
-  'frames/frame_272.gif',
-  'frames/frame_273.gif',
-  'frames/frame_274.gif',
-  'frames/frame_275.gif',
-  'frames/frame_276.gif',
-  'frames/frame_277.gif',
-  'frames/frame_278.gif',
-  'frames/frame_279.gif',
-  'frames/frame_280.gif',
-  'frames/frame_281.gif',
-  'frames/frame_282.gif',
-  'frames/frame_283.gif',
-  'frames/frame_284.gif',
-  'frames/frame_285.gif',
-  'frames/frame_286.gif',
-  'frames/frame_287.gif',
-  'frames/frame_288.gif',
-  'frames/frame_289.gif',
-  'frames/frame_290.gif',
-  'frames/frame_291.gif',
-  'frames/frame_292.gif',
-  'frames/frame_293.gif',
-  'frames/frame_294.gif',
-  'frames/frame_295.gif',
-  'frames/frame_296.gif',
-  'frames/frame_297.gif',
-  'frames/frame_298.gif',
-  'frames/frame_299.gif',
-]
+'use strict'
 
 function rafThrottle(fn) {
-  return function(...args) {
+  return function() {
     window.requestAnimationFrame(function() {
-      fn.apply(this, [...args])
+      fn.apply(this, arguments)
     })
   }
 }
 
-class ScrollSpin {
-  constructor(el, frames = [], options = {}) {
-    const DEFAULT_OPTIONS = {
-      frameDistance: 20,
+var ScrollSpin = (function() {
+  function ScrollSpin(el, frames = [], options = {}) {
+    this.options = {
+      frameDistance: options.frameDistance || 20,
+      initialPreloadCount: options.initialPreloadCount || 10,
     }
     this.el = el
     this.img = document.createElement('img')
@@ -320,20 +20,16 @@ class ScrollSpin {
     this.el.appendChild(this.img)
 
     this.preloadImages = []
-    this.initialPreloadCount = 10
     this.frames = frames
-    this.options = { ...DEFAULT_OPTIONS, ...options }
 
-    // Bind methods
-    this.update = this.update.bind(this)
-    this.preloadRest = this.preloadRest.bind(this)
-    this.makeImg = this.makeImg.bind(this)
     this.preloadInitial()
 
-    window.addEventListener('scroll', rafThrottle(this.update))
+    window.addEventListener('scroll', rafThrottle(this.update.bind(this)))
   }
 
-  preloadInitial() {
+  var _proto = ScrollSpin.prototype
+
+  _proto.preloadInitial = function preloadInitial() {
     this.preloadImages = this.preloadImages.concat(
       this.frames.slice(0, this.initialPreloadCount).map(this.makeImg)
     )
@@ -343,28 +39,31 @@ class ScrollSpin {
       this.preloadRest()
     } else {
       // finish preloading later
-      document.addEventListener('DOMContentLoaded', this.preloadRest)
+      document.addEventListener('DOMContentLoaded', this.preloadRest.bind(this))
     }
   }
 
-  preloadRest() {
+  _proto.preloadRest = function preloadRest() {
     this.preloadImages = this.preloadImages.concat(
       this.frames.slice(this.initialPreloadCount).map(this.makeImg)
     )
   }
 
-  makeImg(src) {
-    let img = new Image()
+  _proto.makeImg = function makeImg(src) {
+    let img = document.createElement('img')
     img.src = src
     return img
   }
 
-  update() {
+  _proto.update = function update() {
     const totalFrames = this.frames.length
     const index =
       Math.floor(window.scrollY / this.options.frameDistance) % totalFrames
     this.img.src = this.frames[index]
   }
-}
 
+  return ScrollSpin
+})()
+
+// frames is provided by frames.js
 const ss = new ScrollSpin(document.getElementById('scrollspin'), frames)
