@@ -64,6 +64,3 @@ var ScrollSpin = (function() {
 
   return ScrollSpin
 })()
-
-// frames is provided by frames.js
-const ss = new ScrollSpin(document.getElementById('scrollspin'), frames)
